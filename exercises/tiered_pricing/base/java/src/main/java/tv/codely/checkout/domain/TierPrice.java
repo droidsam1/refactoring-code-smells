@@ -1,6 +1,6 @@
-package tv.codely.checkout;
+package tv.codely.checkout.domain;
 
-class TierPrice {
+public class TierPrice {
     private final int minRangeValue;
     private final int maxRangeValue;
     private final int price;
