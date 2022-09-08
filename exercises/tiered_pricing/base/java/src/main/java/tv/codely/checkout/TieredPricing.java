@@ -9,8 +9,8 @@ public class TieredPricing {
     public int getTotalPriceFor(int numberOfLicenses) {
 
         int total = 0;
-        for (int i = 0; i < numberOfLicenses; i++) {
-            total += getUnitPriceForRange(i + 1);
+        for (int i = 1; i <= numberOfLicenses; i++) {
+            total += getUnitPriceForRange(i);
         }
 
         return total;
@@ -26,7 +26,12 @@ public class TieredPricing {
             return TIER2_UNIT_PRICE;
         }
 
-        return TIER3_UNIT_PRICE;
+        if (isInRangeForTier3(numberOfLicenses)) {
+            return TIER3_UNIT_PRICE;
+        }
+
+        return 199;
+
     }
 
     private boolean isInRangeForTier1(int numberOfLicenses) {
@@ -35,6 +40,10 @@ public class TieredPricing {
 
     private boolean isInRangeForTier2(int numberOfLicenses) {
         return numberOfLicenses >= 3 && numberOfLicenses <= 10;
+    }
+
+    private boolean isInRangeForTier3(int numberOfLicenses) {
+        return numberOfLicenses >= 11 && numberOfLicenses <= 25;
     }
 
 }
