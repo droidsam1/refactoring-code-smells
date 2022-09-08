@@ -17,14 +17,23 @@ public class TieredPricing {
 
 
     private int getUnitPriceForRange(int numberOfLicenses) {
-        if (numberOfLicenses < 3) {
+        if (isInRangeForTier1(numberOfLicenses)) {
             return 299;
         }
 
-        if (numberOfLicenses < 11) {
+        if (isInRangeForTier2(numberOfLicenses)) {
             return 239;
         }
 
         return 219;
     }
+
+    private boolean isInRangeForTier1(int numberOfLicenses) {
+        return numberOfLicenses >= 1 && numberOfLicenses <= 2;
+    }
+
+    private boolean isInRangeForTier2(int numberOfLicenses) {
+        return numberOfLicenses >= 3 && numberOfLicenses <= 10;
+    }
+
 }
