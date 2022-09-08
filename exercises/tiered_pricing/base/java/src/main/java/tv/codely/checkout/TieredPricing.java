@@ -2,6 +2,9 @@ package tv.codely.checkout;
 
 import tv.codely.checkout.domain.TierPrice;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class TieredPricing {
 
     public final TierPrice TIER_1_PRICE = new TierPrice(1, 2, 299);
@@ -26,20 +29,11 @@ public class TieredPricing {
 
     private int getUnitPriceForRange(int numberOfLicenses) {
 
-        if (TIER_1_PRICE.isEligibleFor(numberOfLicenses)) {
-            return TIER_1_PRICE.getPrice();
-        }
 
-        if (TIER2_PRICE.isEligibleFor(numberOfLicenses)) {
-            return TIER2_PRICE.getPrice();
-        }
-
-        if (TIER3_PRICE.isEligibleFor(numberOfLicenses)) {
-            return TIER3_PRICE.getPrice();
-        }
-
-        if (TIER4_PRICE.isEligibleFor(numberOfLicenses)) {
-            return TIER4_PRICE.getPrice();
+        for (TierPrice tierPrice : Arrays.asList(TIER_1_PRICE, TIER2_PRICE, TIER3_PRICE, TIER4_PRICE)){
+            if(tierPrice.isEligibleFor(numberOfLicenses)){
+                return tierPrice.getPrice();
+            }
         }
 
         return 199;
