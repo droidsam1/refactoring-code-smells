@@ -8,7 +8,7 @@ public class TieredPricing {
     public int getTotalPriceFor(int numberOfLicenses) {
 
         if (numberOfLicenses < 3) {
-            return numberOfLicenses * basePrice;
+            return numberOfLicenses * getUnitPriceForRange(numberOfLicenses);
         }
 
         if (numberOfLicenses > 10) {
@@ -17,5 +17,18 @@ public class TieredPricing {
         }
 
         return (2 * basePrice) + (numberOfLicenses - 2) * 239;
+    }
+
+
+    private int getUnitPriceForRange(int numberOfLicenses) {
+        if (numberOfLicenses < 3) {
+            return 299;
+        }
+
+        if (numberOfLicenses < 11) {
+            return 239;
+        }
+
+        return 219;
     }
 }
