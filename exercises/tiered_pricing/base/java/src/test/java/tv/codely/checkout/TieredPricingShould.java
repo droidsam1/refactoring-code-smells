@@ -7,6 +7,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TieredPricingShould {
 
+    //TODO: change the test and the implementation:
+    // the unit price for every range applies for all the licenses, not only for those which fall within the range
+
     @Test
     @DisplayName("calculate the price for one license")
     void calculate_the_price_for_one_license() {
