@@ -49,4 +49,10 @@ public class TieredPricingShould {
         int total = new TieredPricing().getTotalPriceFor(11);
         assertEquals(2729, total);
     }
+
+    @Test
+    void calculate_the_price_for_twelve_licenses() {
+        int total = new TieredPricing().getTotalPriceFor(12);
+        assertEquals(2948, total);
+    }
 }
