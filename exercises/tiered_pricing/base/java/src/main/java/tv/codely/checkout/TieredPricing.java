@@ -7,20 +7,10 @@ public class TieredPricing {
 
     public int getTotalPriceFor(int numberOfLicenses) {
 
-
-        if (numberOfLicenses == 3) {
-            return 299 + 299 + 239;
+        if (numberOfLicenses < 3) {
+            return numberOfLicenses * basePrice;
         }
 
-        if (numberOfLicenses == 4) {
-            return 299 + 299 + 239 + 239;
-        }
-
-
-        if (numberOfLicenses == 5) {
-            return 299 + 299 + 239 + 239 + 239;
-        }
-
-        return numberOfLicenses * basePrice;
+        return (2 * basePrice) + (numberOfLicenses - 2) * 239;
     }
 }
