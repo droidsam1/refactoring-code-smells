@@ -23,7 +23,7 @@ public class TieredPricing {
     private int getUnitPriceForRange(int numberOfLicenses) {
 
         if (TIER_1_PRICE.isEligibleFor(numberOfLicenses)) {
-            return TIER_1_PRICE.price;
+            return TIER_1_PRICE.getPrice();
         }
 
         if (isInRangeForTier1(numberOfLicenses)) {
@@ -60,22 +60,6 @@ public class TieredPricing {
 
     private boolean isInRangeForTier4(int numberOfLicenses) {
         return numberOfLicenses >= 26 && numberOfLicenses <= 50;
-    }
-
-    class TierPrice {
-        private final int minRangeValue;
-        private final int maxRangeValue;
-        private final int price;
-
-        public TierPrice(int minRangeValue, int maxRangeValue, int price) {
-            this.maxRangeValue = maxRangeValue;
-            this.price = price;
-            this.minRangeValue = minRangeValue;
-        }
-
-        private boolean isEligibleFor(int numberOfLicenses) {
-            return numberOfLicenses >= minRangeValue && numberOfLicenses <= maxRangeValue;
-        }
     }
 
 }
