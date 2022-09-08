@@ -2,8 +2,9 @@ package tv.codely.checkout;
 
 public class TieredPricing {
 
-    private static final int basePrice = 299;
-
+    public static final int TIER1_UNIT_PRICE = 299;
+    public static final int TIER2_UNIT_PRICE = 239;
+    public static final int TIER3_UNIT_PRICE = 219;
 
     public int getTotalPriceFor(int numberOfLicenses) {
 
@@ -18,14 +19,14 @@ public class TieredPricing {
 
     private int getUnitPriceForRange(int numberOfLicenses) {
         if (isInRangeForTier1(numberOfLicenses)) {
-            return 299;
+            return TIER1_UNIT_PRICE;
         }
 
         if (isInRangeForTier2(numberOfLicenses)) {
-            return 239;
+            return TIER2_UNIT_PRICE;
         }
 
-        return 219;
+        return TIER3_UNIT_PRICE;
     }
 
     private boolean isInRangeForTier1(int numberOfLicenses) {
