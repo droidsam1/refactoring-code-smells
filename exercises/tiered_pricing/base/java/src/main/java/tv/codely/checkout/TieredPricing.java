@@ -12,11 +12,11 @@ public class TieredPricing {
         }
 
         if (numberOfLicenses == 11) {
-            return 2729;
+            return 2510 + 219;
         }
 
         if (numberOfLicenses == 12) {
-            return 2729 + 219;
+            return 2510 + 219 + 219;
         }
 
         return (2 * basePrice) + (numberOfLicenses - 2) * 239;
