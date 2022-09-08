@@ -11,12 +11,7 @@ public class TieredPricing {
             return numberOfLicenses * basePrice;
         }
 
-        if (numberOfLicenses == 11) {
-            int numberOfLicensesExceedsTen = (numberOfLicenses - 10);
-            return (2 * basePrice) + ((numberOfLicenses - numberOfLicensesExceedsTen) - 2) * 239 + numberOfLicensesExceedsTen * 219;
-        }
-
-        if (numberOfLicenses == 12) {
+        if (numberOfLicenses > 10) {
             int numberOfLicensesExceedsTen = (numberOfLicenses - 10);
             return (2 * basePrice) + ((numberOfLicenses - numberOfLicensesExceedsTen) - 2) * 239 + numberOfLicensesExceedsTen * 219;
         }
