@@ -26,7 +26,7 @@ public class TieredPricing {
             }
         }
 
-        return 199;
+        return 299;
 
     }
 
@@ -35,8 +35,10 @@ public class TieredPricing {
         final TierPrice tier2Price = new TierPrice(3, 10, 239);
         final TierPrice tier3Price = new TierPrice(11, 25, 219);
         final TierPrice tier4Price = new TierPrice(26, 50, 199);
+        final TierPrice tier5Price = new TierPrice(51, Integer.MAX_VALUE, 149);
 
-        return Arrays.asList(tier1Price, tier2Price, tier3Price, tier4Price);
+
+        return Arrays.asList(tier1Price, tier2Price, tier3Price, tier4Price, tier5Price);
     }
 
 
